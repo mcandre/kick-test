@@ -3,15 +3,13 @@ unset IFS
 set -eufo pipefail
 
 usage() {
-    printf "usage: $0 [OPTIONS]\n\n"
+    printf "Usage: $0 [OPTIONS]\n\n"
     printf -- "-h\tShow usage menu\n"
     printf -- "-d\tEnable debug mode\n"
 }
 
 if [ "$#" -gt 0 ]; then
     ARG="$1"
-
-    echo "ARG: $ARG"
 
     case "$ARG" in
         '-h')
