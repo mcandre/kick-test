@@ -1,4 +1,4 @@
-# kickers: workflow automators
+# kickers: SDLC workflow automators
 
 # ABOUT
 
