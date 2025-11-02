@@ -35,11 +35,11 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ ! "$DEBUG" ]; then
-    tty -s
-    exec &>/dev/null 2>&1
+if [ "$DEBUG" ]; then
     set -x
 else
+    tty -s
+    exec &>/dev/null 2>&1
     set -x
 fi
 
