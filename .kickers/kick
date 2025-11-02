@@ -7,7 +7,7 @@ set -eufo pipefail
 #
 
 usage() {
-    printf "Usage: $0 [OPTIONS]\n\n"
+    printf "Usage: %s [OPTIONS]\n\n" "$0"
     printf -- "-m <message>\tApply custom commit message\n"
     printf -- "-n\t\tEnable nonce\n"
     printf -- "-d\t\tEnable debug mode\n"
