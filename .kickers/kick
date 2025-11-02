@@ -35,10 +35,8 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-echo "DEBUG: $DEBUG"
-
 if [ ! "$DEBUG" ]; then
-    exec &>/dev/null
+    exec &>/dev/null 2>&1
     set -x
 fi
 
