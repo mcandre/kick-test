@@ -1,0 +1,16 @@
+#!/bin/bash
+unset IFS
+set -eufo pipefail
+
+git fetch --all --tags
+
+git pull
+
+git add .
+
+if [ -n "$(git status --porcelain)" ]; then
+    git commit -m 'up'
+    git push
+fi
+
+git push --tags
