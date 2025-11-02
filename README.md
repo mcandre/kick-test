@@ -31,7 +31,9 @@ See `kick -h` for more options.
 
 The example [.kickers/kick](.kickers/kick) script automates common git operations, such as syncing the current git branch between local and remote repositories.
 
-## REGISTER PER-USER KICKER SCRIPTS
+## PER-USER KICKER SCRIPTS
+
+Per-user kicker scripts apply to most of your local projects.
 
 ```console
 $ mkdir -p ~/.kickers
@@ -41,7 +43,9 @@ $ cp kickers/.kickers/kick ~/.kickers
 $ chmod +x ~/.kickers/kick
 ```
 
-## REGISTER PER-PROJECT KICKER SCRIPTS
+## PER-PROJECT KICKER SCRIPTS
+
+Per-project scripts apply to specific project(s), and may override per-user scripts based on the script basename.
 
 ```console
 $ cd <project>
