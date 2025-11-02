@@ -8,12 +8,12 @@ usage() {
     printf -- "-d\tEnable debug mode\n"
 }
 
-STDERR_TARGET='/dev/null'
-STDOUT_TARGET='/dev/null'
+REDIRECT='>/dev/null'
+REDIRECT_PUSH='>/dev/null 2>&1'
 
 enable_debugging() {
-    STDERR_TARGET=2
-    STDOUT_TARGET=1
+    REDIRECT=''
+    REDIRECT_PUSH_TAGS=''
     set -x
 }
 
@@ -39,15 +39,15 @@ fi
 # Sync changes between local and remote for current git branch
 #
 
-git fetch --all >"$STDOUT_TARGET"
+git fetch --all $REDIRECT
 
-git add . >"$STDOUT_TARGET"
+git add . $REDIRECT
 
 if [ -n "$(git status --porcelain)" ]; then
-    git commit -m 'up' >"$STDOUT_TARGET"
-    git pull >"$STDOUT_TARGET"
-    git push >"$STDOUT_TARGET" 2>"$STDERR_TARGET"
+    git commit -m 'up' $REDIRECT
+    git pull $REDIRECT
+    git push $REDIRECT_PUSH
 fi
 
-git fetch --tags >"$STDOUT_TARGET"
-git push --tags >"$STDOUT_TARGET"
+git fetch --tags $REDIRECT
+git push --tags $REDIRECT_PUSH
