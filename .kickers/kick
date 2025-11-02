@@ -8,14 +8,7 @@ usage() {
     printf -- "-d\tEnable debug mode\n"
 }
 
-REDIRECT='>/dev/null'
-REDIRECT_PUSH='>/dev/null 2>&1'
-
-enable_debugging() {
-    REDIRECT=''
-    REDIRECT_PUSH_TAGS=''
-    set -x
-}
+DEBUG=0
 
 if [ "$#" -gt 0 ]; then
     ARG="$1"
@@ -26,7 +19,7 @@ if [ "$#" -gt 0 ]; then
             exit
             ;;
         '-d')
-            enable_debugging
+            DEBUG=1
             ;;
         *)
             usage
@@ -35,19 +28,24 @@ if [ "$#" -gt 0 ]; then
     esac
 fi
 
+if [ "$DEBUG" ]; then
+    exec &>/dev/null
+    set -x
+fi
+
 #
 # Sync changes between local and remote for current git branch
 #
 
-git fetch --all $REDIRECT
+git fetch --all
 
-git add . $REDIRECT
+git add .
 
 if [ -n "$(git status --porcelain)" ]; then
-    git commit -m 'up' $REDIRECT
-    git pull $REDIRECT
-    git push $REDIRECT_PUSH
+    git commit -m 'up'
+    git pull
+    git push
 fi
 
-git fetch --tags $REDIRECT
-git push --tags $REDIRECT_PUSH
+git fetch --tags
+git push --tags
