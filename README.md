@@ -13,6 +13,8 @@ $ kick
 Everything up-to-date
 ```
 
+The example [.kickers/kick](.kickers/kick) script automates common git operations, such as syncing the current git branch between local and remote repositories.
+
 See `kick -h` for more options.
 
 # REQUIREMENTS
@@ -27,9 +29,7 @@ See `kick -h` for more options.
 # SETUP
 
 1. Install direnv.
-2. Register per-user and/or per-project kicker scripts.
-
-The example [.kickers/kick](.kickers/kick) script automates common git operations, such as syncing the current git branch between local and remote repositories.
+2. Register some per-user and/or per-project kicker scripts.
 
 ## PER-USER KICKER SCRIPTS
 
