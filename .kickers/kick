@@ -69,9 +69,9 @@ git add .
 
 if [ -n "$(git status --porcelain)" ]; then
     git commit -m "$MESSAGE"
-    git pull
-    git push
 fi
 
+git pull
+git push
 git fetch --tags
 git push --tags
