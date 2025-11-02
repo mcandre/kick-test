@@ -2,7 +2,9 @@
 
 # ABOUT
 
-kickers automate common development workflows. Workflows are customizable on a per-repository basis.
+kickers automate common development workflows.
+
+Workflows are customizable on a per-user and/or per-repository basis.
 
 # EXAMPLE
 
@@ -27,7 +29,7 @@ See `kick -h` for more options.
 1. Install direnv.
 2. Register per-user and/or per-project kicker scripts.
 
-The example [.kickers/kick](.kickers/kick) script automates common git operations.
+The example [.kickers/kick](.kickers/kick) script automates common git operations, such as syncing the current git branch between local and remote repositories.
 
 ## REGISTER PER-USER KICKER SCRIPTS
 
