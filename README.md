@@ -8,7 +8,7 @@ kickers automate common development workflows. Workflows are customizable on a p
 
 ```console
 $ kick
-(syncs local & remote git changes)
+Everything up-to-date
 ```
 
 See `kick -h` for more options.
