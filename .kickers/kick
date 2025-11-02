@@ -6,7 +6,7 @@ set -eufo pipefail
 # Sync changes between local and remote for current git branch
 #
 
-git fetch --all --tags >/dev/null
+git fetch --all >/dev/null
 
 git add . >/dev/null
 
@@ -16,4 +16,5 @@ if [ -n "$(git status --porcelain)" ]; then
     git push >/dev/null
 fi
 
+git fetch --tags >/dev/null
 git push --tags >/dev/null
