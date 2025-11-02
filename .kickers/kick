@@ -39,6 +39,8 @@ if [ ! "$DEBUG" ]; then
     tty -s
     exec &>/dev/null 2>&1
     set -x
+else
+    set -x
 fi
 
 #
