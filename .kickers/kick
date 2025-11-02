@@ -2,8 +2,11 @@
 unset IFS
 set -eufo pipefail
 
+echo "\$#: $#"
+echo "\$1: $1"
+
 if [ "$#" -gt 0 ]; then
-    if [ "$2" = '-d' ]; then
+    if [ "$1" = '-d' ]; then
         set +x
     fi
 fi
