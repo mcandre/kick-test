@@ -16,4 +16,4 @@ if [ -n "$(git status --porcelain)" ]; then
     git push >/dev/null
 fi
 
-git push --tags
+git push --tags >/dev/null
