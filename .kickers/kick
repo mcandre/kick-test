@@ -8,6 +8,15 @@ usage() {
     printf -- "-d\tEnable debug mode\n"
 }
 
+STDERR_TARGET='/dev/null'
+STDOUT_TARGET='/dev/null'
+
+enable_debugging() {
+    STDERR_TARGET=2
+    STDOUT_TARGET=1
+    set -x
+}
+
 if [ "$#" -gt 0 ]; then
     ARG="$1"
 
@@ -17,7 +26,7 @@ if [ "$#" -gt 0 ]; then
             exit
             ;;
         '-d')
-            set -x
+            enable_debugging
             ;;
         *)
             usage
@@ -30,15 +39,15 @@ fi
 # Sync changes between local and remote for current git branch
 #
 
-git fetch --all >/dev/null
+git fetch --all >"$STDOUT_TARGET"
 
-git add . >/dev/null
+git add . >"$STDOUT_TARGET"
 
 if [ -n "$(git status --porcelain)" ]; then
-    git commit -m 'up' >/dev/null
-    git pull >/dev/null
-    git push >/dev/null 2>&1
+    git commit -m 'up' >"$STDOUT_TARGET"
+    git pull >"$STDOUT_TARGET"
+    git push >"$STDOUT_TARGET" 2>"$STDERR_TARGET"
 fi
 
-git fetch --tags >/dev/null
-git push --tags >/dev/null
+git fetch --tags >"$STDOUT_TARGET"
+git push --tags >"$STDOUT_TARGET"
