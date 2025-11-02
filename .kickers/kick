@@ -35,7 +35,7 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ ! "$DEBUG" ]; then
+if [ "$DEBUG" ]; then
     echo 'normal mode'
 
     # tty -s
