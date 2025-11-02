@@ -32,6 +32,12 @@ while [ "$#" -gt 0 ]; do
             ;;
         '-m')
             shift
+
+            if [ "$#" -lt 1 ]; then
+                usage
+                exit 1
+            fi
+
             MESSAGE="$1"
             shift
             ;;
