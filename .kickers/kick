@@ -28,7 +28,7 @@ if [ "$#" -gt 0 ]; then
     esac
 fi
 
-if [ "$DEBUG" ]; then
+if [ ! "$DEBUG" ]; then
     exec &>/dev/null
     set -x
 fi
