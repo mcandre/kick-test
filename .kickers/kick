@@ -35,15 +35,15 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ "$DEBUG" ]; then
+if [ "$DEBUG" -eq 1 ]; then
+    echo 'debug mode'
+
+    # set -x
+else
     echo 'normal mode'
 
     # tty -s
     # exec &>/dev/null 2>&1
-else
-    echo 'debug mode'
-
-    # set -x
 fi
 
 #
