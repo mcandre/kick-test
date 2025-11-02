@@ -41,3 +41,5 @@ Everything up-to-date
 
 * [git](https://git-scm.com/)
 * [GNU bash](https://www.gnu.org/software/bash/) 4+
+
+👟
