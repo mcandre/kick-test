@@ -36,10 +36,14 @@ while [ "$#" -gt 0 ]; do
 done
 
 if [ "$DEBUG" ]; then
-    set -x
+    echo 'debug mode'
+
+    # set -x
 else
-    tty -s
-    exec &>/dev/null 2>&1
+    echo 'normal mode'
+
+    # tty -s
+    # exec &>/dev/null 2>&1
 fi
 
 #
