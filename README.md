@@ -13,11 +13,11 @@ $ kick
 
 # REQUIREMENTS
 
-* [direnv](https://direnv.net/)
+* [direnv](https://direnv.net/) 2
 
 ## Recommended
 
-* [git](https://git-scm.com/)
+* [git](https://git-scm.com/) 2.46.1+
 * [GNU bash](https://www.gnu.org/software/bash/) 4+
 
 # SETUP
