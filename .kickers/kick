@@ -4,11 +4,13 @@ set -eufo pipefail
 
 usage() {
     printf "Usage: $0 [OPTIONS]\n\n"
-    printf -- "-h\tShow usage menu\n"
+    printf -- "-n\tEnable nonce\n"
     printf -- "-d\tEnable debug mode\n"
+    printf -- "-h\tShow usage menu\n"
 }
 
 DEBUG=0
+NONCE=0
 
 if [ "$#" -gt 0 ]; then
     ARG="$1"
@@ -20,6 +22,9 @@ if [ "$#" -gt 0 ]; then
             ;;
         '-d')
             DEBUG=1
+            ;;
+        '-n')
+            NONCE=1
             ;;
         *)
             usage
@@ -38,6 +43,10 @@ fi
 #
 
 git fetch --all
+
+if [ "$NONCE" ]; then
+    date >.kick
+fi
 
 git add .
 
