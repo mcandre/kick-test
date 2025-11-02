@@ -1,6 +1,12 @@
 #!/bin/bash
 unset IFS
-set -xeufo pipefail
+set -eufo pipefail
+
+if [ "$#" -gt 0 ]; then
+    if [ "$2" = '-d' ]; then
+        set +x
+    fi
+fi
 
 #
 # Sync changes between local and remote for current git branch
