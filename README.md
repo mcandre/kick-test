@@ -2,7 +2,7 @@
 
 # ABOUT
 
-kickers automate common development workflows, such as syncing git changes between local and remote repositories. Workflows are customizable on a per-repository basis.
+kickers automate common development workflows. Workflows are customizable on a per-repository basis.
 
 # EXAMPLE
 
@@ -10,6 +10,8 @@ kickers automate common development workflows, such as syncing git changes betwe
 $ kick
 (syncs local & remote git changes)
 ```
+
+See `kick -h` for more options.
 
 # REQUIREMENTS
 
@@ -24,6 +26,8 @@ $ kick
 
 1. Install direnv.
 2. Register per-user and/or per-project kicker scripts.
+
+The example [.kickers/kick](.kickers/kick) script automates common git operations.
 
 ## REGISTER PER-USER KICKER SCRIPTS
 
