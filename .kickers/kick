@@ -2,6 +2,10 @@
 unset IFS
 set -xeufo pipefail
 
+#
+# Sync changes between local and remote for current git branch
+#
+
 git fetch --all --tags
 
 git add .
