@@ -2,13 +2,31 @@
 unset IFS
 set -eufo pipefail
 
-echo "\$#: $#"
-echo "\$1: $1"
+usage() {
+    printf "usage: $0 [OPTIONS]\n\n"
+    printf -- "-h\tShow usage menu\n"
+    printf -- "-d\tEnable debug mode\n"
+}
 
 if [ "$#" -gt 0 ]; then
-    if [ "$1" = '-d' ]; then
-        set +x
-    fi
+    ARG="$1"
+
+    echo "ARG: $ARG"
+
+    case "$ARG" in
+        '-h')
+            usage
+            exit
+            ;;
+        '-d')
+            set -x
+            break
+            ;;
+        *)
+            usage
+            exit 1
+            ;;
+    esac
 fi
 
 #
