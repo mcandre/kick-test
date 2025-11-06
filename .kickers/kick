@@ -10,12 +10,10 @@ usage() {
     printf "Usage: %s [OPTIONS]\n\n" "$0"
     printf -- "-m <message>\tApply custom commit message\n"
     printf -- "-n\t\tEnable nonce\n"
-    printf -- "-d\t\tEnable debug mode\n"
     printf -- "-s\t\tEnable silent mode\n"
     printf -- "-h\t\tShow usage menu\n"
 }
 
-DEBUG=0
 MESSAGE='up'
 NONCE=0
 SILENT=0
@@ -27,10 +25,6 @@ while [ "$#" -gt 0 ]; do
         '-h')
             usage
             exit
-            ;;
-        '-d')
-            DEBUG=1
-            shift
             ;;
         '-m')
             shift
@@ -58,12 +52,8 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ "$DEBUG" -eq 1 ]; then
+if [ "$SILENT" -ne 1 ]; then
     set -x
-else
-    tty -s
-    exec 3>&1 4>&2
-    exec &>/dev/null 2>&1
 fi
 
 git fetch --all
@@ -81,9 +71,5 @@ fi
 git pull
 git push
 git fetch --tags
-
-if [ "$DEBUG" -eq 0 ] && [ "$SILENT" -eq 0 ]; then
-    exec 1>&3 2>&4
-fi
 
 git push --tags
