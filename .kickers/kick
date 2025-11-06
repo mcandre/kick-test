@@ -10,13 +10,13 @@ usage() {
     printf "Usage: %s [OPTIONS]\n\n" "$0"
     printf -- "-m <message>\tApply custom commit message\n"
     printf -- "-n\t\tEnable nonce\n"
-    printf -- "-s\t\tEnable silent mode\n"
+    printf -- "-q\t\tQuiet logs\n"
     printf -- "-h\t\tShow usage menu\n"
 }
 
 MESSAGE='up'
 NONCE=0
-SILENT=0
+QUIET=0
 
 while [ "$#" -gt 0 ]; do
     ARG="$1"
@@ -41,8 +41,8 @@ while [ "$#" -gt 0 ]; do
             NONCE=1
             shift
             ;;
-        '-s')
-            SILENT=1
+        '-q')
+            QUIET=1
             shift
             ;;
         *)
@@ -52,7 +52,7 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ "$SILENT" -ne 1 ]; then
+if [ "$QUIET" -ne 1 ]; then
     set -x
 fi
 
